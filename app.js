@@ -17,6 +17,10 @@ const peerServer = ExpressPeerServer(server, {
 });
 app.use('/peerjs', peerServer);
 
+app.get('/', (req, res) => {
+  res.send('Web Socket Server is running..');
+});
+
 const onConnection = (socket) => {
   console.log('user connected..');
   socket.on('join-as-streamer', (roomId, streamerId) => {
